@@ -1,0 +1,22 @@
+{   
+    "name": "White Bread",
+    "type": "Bakery",
+    "style": "British",
+    "ingredients": [
+      {"item": "strong white bread flour", "quantity": 500, "unit": "g"},
+      {"item": "instant yeast", "quantity": 7, "unit": "g"},
+      {"item": "caster sugar", "quantity": 10, "unit": "g"},
+      {"item": "salt", "quantity": 5, "unit": "g"},
+      {"item": "warm water", "quantity": 320, "unit": "ml"}
+    ],
+    "method": [
+      "Mix the flour, yeast, sugar, and salt in a large bowl.",
+      "Add the warm water and oil, then mix into a soft dough.",
+      "Knead on a floured surface for 10 minutes until smooth and elastic.",
+      "Place in a lightly oiled bowl, cover, and prove for 1 hour until doubled in size.",
+      "Knock back the dough, shape into a loaf, and place in a greased 900g loaf tin.",
+      "Cover and prove for 30-45 minutes until risen above the tin edge.",
+      "Bake at 200°C (fan 180°C) for 30-35 minutes until golden and hollow-sounding when tapped.",
+      "Cool on a wire rack before slicing."
+    ]
+}
