@@ -49,13 +49,19 @@ if choice == 1:
 elif choice ==2:
     all_recipes = get_all_recipes()
     joined = " ".join(all_recipes)
+    
     search_string = input("Enter a term to search for: ").strip().lower()
-    searched = re.findall(rf"\b{re.escape(search_string)}\b", joined)
-    if len(searched) ==0:
+    while len(search_string) <3:
+        print("Enter at least 3 characters: ")
+        search_string = input("Enter a term to search for: ").strip().lower()
+
+    matches = filter(lambda e: search_string in e, all_recipes)
+    for m in matches:
+        print(m)
+    if len(matches) ==0:
         print("No matches found")
     else:
         print("Found matching recipes:")
-        
 elif choice ==4:
     get_all_recipes()
 
