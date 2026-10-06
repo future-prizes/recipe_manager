@@ -6,9 +6,6 @@ class Recipe:
         self.ingredients = recipe["ingredients"]
         self.method = recipe["method"]
 
-    def show_recipe(self, **recipe:dict):
-        print(self.recipe["recipe"])
-
 
 
 

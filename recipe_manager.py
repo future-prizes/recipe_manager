@@ -1,5 +1,7 @@
 from recipe import Recipe
 import json
+import re
+import os
 
 def show_recipe(recipe):
     with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
@@ -14,6 +16,16 @@ def show_recipe(recipe):
         for m in shown_recipe.method:
             number +=1
             print(f"{number}. {m}")
+
+def get_all_recipes():
+    files = os.listdir("recipes\\")
+    recipe_list = []
+    for f in files:
+        recipe = f.replace(".txt", "")
+        recipe = recipe.replace("_", " ")
+        recipe_list.append(recipe)
+    return recipe_list
+
 
 
 print("Welcome to Recipe Manager")
@@ -31,9 +43,22 @@ choice = int(input(
 """))
 
 if choice == 1:
-    chosen_recipe = input("Enter the recipe name: ")
+    chosen_recipe = input("Enter the recipe name: ").strip().lower()
     input_string = chosen_recipe.replace(" ", "_")
     show_recipe(input_string)
+elif choice ==2:
+    all_recipes = get_all_recipes()
+    joined = " ".join(all_recipes)
+    search_string = input("Enter a term to search for: ").strip().lower()
+    searched = re.findall(rf"\b{re.escape(search_string)}\b", joined)
+    if len(searched) ==0:
+        print("No matches found")
+    else:
+        print("Found matching recipes:")
+        
+elif choice ==4:
+    get_all_recipes()
+
 
 
 
