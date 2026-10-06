@@ -27,44 +27,47 @@ def get_all_recipes():
     return recipe_list
 
 
+def main_menu():
+    print("Welcome to Recipe Manager")
 
-print("Welcome to Recipe Manager")
-
-choice = int(input(
+    choice = int(input(
 """What would you like to do? 
 
-1. Pick a recipe by name
+1. Pick a recipe by name    
 2. Search for a recipe
 3. Edit a recipe
 4. See all recipes
 5. Delete a recipe
 
-
 """))
 
-if choice == 1:
-    chosen_recipe = input("Enter the recipe name: ").strip().lower()
-    input_string = chosen_recipe.replace(" ", "_")
-    show_recipe(input_string)
-elif choice ==2:
-    all_recipes = get_all_recipes()
-    joined = " ".join(all_recipes)
-    
-    search_string = input("Enter a term to search for: ").strip().lower()
-    while len(search_string) <3:
-        print("Enter at least 3 characters: ")
+    if choice == 1:
+        chosen_recipe = input("Enter the recipe name: ").strip().lower()
+        input_string = chosen_recipe.replace(" ", "_")
+        show_recipe(input_string)
+    elif choice ==2:
+        all_recipes = get_all_recipes()
+        joined = " ".join(all_recipes)
+
         search_string = input("Enter a term to search for: ").strip().lower()
+        while len(search_string) <3:
+            print("Enter at least 3 characters: ")
+            search_string = input("Enter a term to search for: ").strip().lower()
 
-    matches = filter(lambda e: search_string in e, all_recipes)
-    for m in matches:
-        print(m)
-    if len(matches) ==0:
-        print("No matches found")
-    else:
-        print("Found matching recipes:")
-elif choice ==4:
-    get_all_recipes()
+        matches = list(filter(lambda e: search_string in e, all_recipes))
+        
+        if len(matches) ==0:
+            print("No matches found")
+        else:
+            print("Found matching recipes:")
+            for m in matches:
+                print(m)
 
+    elif choice ==4:
+        all_recipes = get_all_recipes()
+        print("\n".join(all_recipes))
+
+main_menu()
 
 
 
