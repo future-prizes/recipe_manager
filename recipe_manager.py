@@ -2,7 +2,7 @@ from recipe import Recipe
 import json
 
 def show_recipe(recipe):
-    with open(f"recipes\\{recipe}.txt") as string:
+    with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
         fetched = json.loads(string.read())
         shown_recipe = Recipe(**fetched)
         print(f"Name: {shown_recipe.name}")
