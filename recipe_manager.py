@@ -105,33 +105,41 @@ def edit_recipe(recipe):
     Type
     Style
     Ingredients
-    Method""").strip().lower()
+    Method
+    """).strip().lower()
 
     if part == "type":
-        new_type = input("Enter the new type")
+        new_type = input("Enter the new type ")
         fetched["type"] = new_type
+        edit_uploader(fetched, recipe)
     elif part == "name":
-        new_name = input("Enter the new name")
+        new_name = input("Enter the new name ")
         fetched["name"] = new_name
+        edit_uploader(fetched, recipe)
     elif part =="style":
-        new_style = input("Enter the new style")
+        new_style = input("Enter the new style ")
         fetched["style"] = new_style
+        edit_uploader(fetched, recipe)
     elif part == "ingredients":
-        new_ingredients = add_ingredients()
+        ingredients = []
+        new_ingredients = add_ingredients(ingredients)
         fetched["ingredients"] = new_ingredients
+        edit_uploader(fetched, recipe)
     elif part =="method":
-        new_method = add_method()
+        method = []
+        new_method = add_method(method)
         fetched["method"] = new_method
+        edit_uploader(fetched, recipe)
     else:
-        print("part not in recipe")
+        print("part not in recipe ")
 
+    print(recipe, "edited & saved")
+
+def edit_uploader(fetched, recipe):
     dumped = json.dumps(fetched, indent=4)
-    
-    with open(f"recipes\\{recipe}.txt", "w") as recipe:
-        recipe.write(dumped)
-    print(f"{recipe} edited & saved")
+    with open(f"recipes\\{recipe}.txt", "w") as edit_recipe:
+        edit_recipe.write(dumped)
 
-    
 def exit():
     print("Goodbye!")
 
@@ -191,7 +199,11 @@ def main_menu():
         show_recipe(recipe)
 
         edit_recipe(recipe)
-        main_menu()
+        menu = input("Go back to main menu? y/n")
+        if menu == "y":
+            main_menu()
+        else: 
+            exit()
 
     elif choice ==4:
         all_recipes = get_all_recipes()

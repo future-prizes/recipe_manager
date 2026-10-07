@@ -1,20 +1,21 @@
 {
-    "name": "poo",
-    "type": "fa",
+    "name": "d",
+    "type": "o",
     "style": "fa",
     "ingredients": [
         {
-            "item": "fa",
-            "quantity": "fa",
-            "unit": "fa"
+            "item": "mr pibb",
+            "quantity": "500 ",
+            "unit": "cases"
         },
         {
-            "item": "da",
-            "quantity": "da",
-            "unit": "da"
+            "item": "god",
+            "quantity": "1",
+            "unit": "bible"
         }
     ],
     "method": [
-        "ds"
+        "da",
+        "dasd"
     ]
 }
