@@ -4,18 +4,21 @@ import re
 import os
 
 def show_recipe(recipe):
-    with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
-        fetched = json.loads(string.read())
-        shown_recipe = Recipe(**fetched)
-        print(f"Name: {shown_recipe.name}")
-        print(f"Type: {shown_recipe.type}")
-        print(f"Style: {shown_recipe.style}")
-        for i in shown_recipe.ingredients:
-            print(f"{i["item"]}: {i["quantity"]}{i["unit"]}")
-        step = 0
-        for m in shown_recipe.method:
-            step +=1
-            print(f"{step}. {m}")
+    if os.path.exists(f"recipes\\{recipe}.txt"):
+        with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
+            fetched = json.loads(string.read())
+            shown_recipe = Recipe(**fetched)
+            print(f"Name: {shown_recipe.name}")
+            print(f"Type: {shown_recipe.type}")
+            print(f"Style: {shown_recipe.style}")
+            for i in shown_recipe.ingredients:
+                print(f"{i["item"]}: {i["quantity"]}{i["unit"]}")
+            step = 0
+            for m in shown_recipe.method:
+                step +=1
+                print(f"{step}. {m}")
+    else:
+        print("Recipe does not exist!")
 
 def get_all_recipes():
     files = os.listdir("recipes\\")
@@ -85,7 +88,7 @@ def create_recipe():
 def delete_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
         os.remove(f"recipes\\{recipe}.txt")
-        print(recipe, "deleted")
+        print(recipe, "deleted!")
         main_menu()
     else: 
         print("Recipe does not exist")
@@ -116,10 +119,14 @@ def main_menu():
         chosen_recipe = input("Enter the recipe name: ").strip().lower()
         input_string = chosen_recipe.replace(" ", "_")
         show_recipe(input_string)
+        menu = input("Go back to main menu? y/n")
+        if menu == "y":
+            main_menu()
+        else: 
+            exit()
+
     elif choice ==2:
         all_recipes = get_all_recipes()
-        
-
         search_string = input("Enter a term to search for: ").strip().lower()
         while len(search_string) <3:
             print("Enter at least 3 characters: ")
@@ -133,10 +140,20 @@ def main_menu():
             print("Found matching recipes:")
             for m in matches:
                 print(m)
+            menu = input("Go back to main menu? y/n")
+            if menu == "y":
+                main_menu()
+            else: 
+                exit()
 
     elif choice ==4:
         all_recipes = get_all_recipes()
         print("\n".join(all_recipes))
+        menu = input("Go back to main menu? y/n")
+        if menu == "y":
+            main_menu()
+        else: 
+            exit()
 
     elif choice ==5:
         create_recipe()
@@ -148,6 +165,11 @@ def main_menu():
         confirm = input("Are you sure? y/n ").strip().lower()
         if confirm == "y":
             delete_recipe(to_delete)
+            menu = input("Go back to main menu? y/n")
+            if menu == "y":
+                main_menu()
+            else: 
+                exit()
         else:
             main_menu()
 
