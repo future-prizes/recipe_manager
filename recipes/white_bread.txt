@@ -1,4 +1,4 @@
-{   
+{
     "name": "White Bread",
     "type": "Bakery",
     "style": "British",
