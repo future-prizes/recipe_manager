@@ -1,6 +1,5 @@
 from recipe import Recipe
 import json
-import re
 import os
 
 def show_recipe(recipe):
@@ -54,8 +53,6 @@ def add_method(method):
     else:
         return method
 
-    
-
 def create_recipe():
     ingredients_list = []
     method = []
@@ -67,7 +64,6 @@ def create_recipe():
     finished_i = add_ingredients(ingredients_list)
     finished_m = add_method(method)
     
-    
     recipe = {
         "name":new_recipe, 
         "type":new_recipe_type,
@@ -75,6 +71,7 @@ def create_recipe():
         "ingredients":finished_i,
         "method":finished_m
         }
+    
     recipe_dump = json.dumps(recipe)
 
     if os.path.exists(f"recipes\\{new_recipe}.txt"):
@@ -94,10 +91,8 @@ def delete_recipe(recipe):
         print("Recipe does not exist")
         main_menu()
     
-
 def exit():
     print("Goodbye!")
-
 
 def main_menu():
     print("Welcome to Recipe Manager")
@@ -177,7 +172,8 @@ def main_menu():
         exit()
 
 
-main_menu()
+if __name__== "__main__":
+    main_menu()
 
 
 
