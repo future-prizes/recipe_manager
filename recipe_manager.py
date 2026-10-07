@@ -72,7 +72,7 @@ def create_recipe():
         "method":finished_m
         }
     
-    recipe_dump = json.dumps(recipe)
+    recipe_dump = json.dumps(recipe, indent=4)
 
     if os.path.exists(f"recipes\\{new_recipe}.txt"):
         print("Recipe already exists!")
@@ -90,6 +90,47 @@ def delete_recipe(recipe):
     else: 
         print("Recipe does not exist")
         main_menu()
+
+def edit_recipe(recipe):
+    if os.path.exists(f"recipes\\{recipe}.txt"):
+        with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
+            fetched = json.loads(string.read())
+    else:
+        print("recipe not found")
+        main_menu()
+
+    part = input(
+    """Enter what part of the recipe to edit:
+    Name
+    Type
+    Style
+    Ingredients
+    Method""").strip().lower()
+
+    if part == "type":
+        new_type = input("Enter the new type")
+        fetched["type"] = new_type
+    elif part == "name":
+        new_name = input("Enter the new name")
+        fetched["name"] = new_name
+    elif part =="style":
+        new_style = input("Enter the new style")
+        fetched["style"] = new_style
+    elif part == "ingredients":
+        new_ingredients = add_ingredients()
+        fetched["ingredients"] = new_ingredients
+    elif part =="method":
+        new_method = add_method()
+        fetched["method"] = new_method
+    else:
+        print("part not in recipe")
+
+    dumped = json.dumps(fetched, indent=4)
+    
+    with open(f"recipes\\{recipe}.txt", "w") as recipe:
+        recipe.write(dumped)
+    print(f"{recipe} edited & saved")
+
     
 def exit():
     print("Goodbye!")
@@ -111,6 +152,8 @@ def main_menu():
 """))
 
     if choice == 1:
+        all_recipes = get_all_recipes()
+        print("\n".join(all_recipes))
         chosen_recipe = input("Enter the recipe name: ").strip().lower()
         input_string = chosen_recipe.replace(" ", "_")
         show_recipe(input_string)
@@ -140,6 +183,15 @@ def main_menu():
                 main_menu()
             else: 
                 exit()
+
+    elif choice ==3:
+        all_recipes = get_all_recipes()
+        print("\n".join(all_recipes))
+        recipe = input("Choose a recipe to edit: ")        
+        show_recipe(recipe)
+
+        edit_recipe(recipe)
+        main_menu()
 
     elif choice ==4:
         all_recipes = get_all_recipes()

@@ -1,0 +1,20 @@
+{
+    "name": "poo",
+    "type": "fa",
+    "style": "fa",
+    "ingredients": [
+        {
+            "item": "fa",
+            "quantity": "fa",
+            "unit": "fa"
+        },
+        {
+            "item": "da",
+            "quantity": "da",
+            "unit": "da"
+        }
+    ],
+    "method": [
+        "ds"
+    ]
+}
