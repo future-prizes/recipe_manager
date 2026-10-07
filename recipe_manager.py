@@ -28,10 +28,7 @@ def get_all_recipes():
 
 def add_ingredients(ingredients_list):
     ingredient = input("Enter an ingredient: ")
-    quantity = int(input("Enter the amount: "))
-    if type(quantity) != int:
-        print("quantities must be numbers")
-        quantity = int(input("Enter the amount: "))
+    quantity = input("Enter the amount: ")
     unit = input("Enter the unit (g, ml, etc): ")
     ingredient_template = {
         "item":ingredient, 
@@ -40,7 +37,7 @@ def add_ingredients(ingredients_list):
     ingredients_list.append(ingredient_template)
     another = input("Add anorther ingredient? y/n ")
     if another =="y":
-        add_ingredients()
+        return add_ingredients(ingredients_list)
     else:
         return ingredients_list
 
@@ -50,13 +47,13 @@ def add_method(method):
     method.append(step)
     another = input("Add another step? y/n ")
     if another =="y":
-        add_method()
+        return add_method(method)
     else:
         return method
 
     
 
-def create_recipe(recipe_name):
+def create_recipe():
     ingredients_list = []
     method = []
     
@@ -75,13 +72,26 @@ def create_recipe(recipe_name):
         "ingredients":finished_i,
         "method":finished_m
         }
+    recipe_dump = json.dumps(recipe)
 
-    with open(f"recipes\\{recipe_name}.txt", "x") as recipe:
-        recipe.write(**recipe)
+    if os.path.exists(f"recipes\\{new_recipe}.txt"):
+        print("Recipe already exists!")
+        main_menu()
+    else:
+        print(f"New recipe: {new_recipe} created!")
+        with open(f"recipes\\{new_recipe}.txt", "x") as recipe:
+            recipe.write(recipe_dump)
 
 def delete_recipe(recipe):
-    os.remove(f"recipes\\{recipe}")
-    print(recipe, "deleted")
+    if os.path.exists(f"recipes\\{recipe}.txt"):
+        os.remove(f"recipes\\{recipe}")
+        print(recipe, "deleted")
+    else: 
+        print("Recipe does not exist")
+    
+
+def exit():
+    print("Goodbye!")
 
 
 def main_menu():
@@ -96,6 +106,7 @@ def main_menu():
 4. See all recipes
 5. Create a recipe
 6. Delete a recipe
+7. Exit
 
 """))
 
@@ -105,7 +116,7 @@ def main_menu():
         show_recipe(input_string)
     elif choice ==2:
         all_recipes = get_all_recipes()
-        joined = " ".join(all_recipes)
+        
 
         search_string = input("Enter a term to search for: ").strip().lower()
         while len(search_string) <3:
@@ -126,7 +137,8 @@ def main_menu():
         print("\n".join(all_recipes))
 
     elif choice ==5:
-        recipe_name = input("Choose a name for the recipe: ")
+        create_recipe()
+        main_menu()
 
     elif choice ==6:
         to_delete = input("Enter a recipe to delete: ").strip().lower()
@@ -136,6 +148,9 @@ def main_menu():
             delete_recipe(to_delete)
         else:
             main_menu()
+
+    elif choice ==7:
+        exit()
 
 
 main_menu()
