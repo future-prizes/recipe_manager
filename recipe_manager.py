@@ -84,10 +84,12 @@ def create_recipe():
 
 def delete_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
-        os.remove(f"recipes\\{recipe}")
+        os.remove(f"recipes\\{recipe}.txt")
         print(recipe, "deleted")
+        main_menu()
     else: 
         print("Recipe does not exist")
+        main_menu()
     
 
 def exit():
