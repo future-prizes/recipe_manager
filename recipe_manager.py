@@ -2,7 +2,7 @@ from recipe import Recipe
 import json
 import os
 
-
+# show a single recipe #
 def show_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
         with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
@@ -68,6 +68,8 @@ def add_method(method):
     else:
         return method
 
+# create recipe, uses functions above # 
+
 def create_recipe():
     ingredients_list = []
     method = []
@@ -97,6 +99,8 @@ def create_recipe():
         with open(f"recipes\\{new_recipe}.txt", "x") as recipe:
             recipe.write(recipe_dump)
 
+# delete a recipe
+
 def delete_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
         os.remove(f"recipes\\{recipe}.txt")
@@ -105,6 +109,8 @@ def delete_recipe(recipe):
     else: 
         print("Recipe does not exist")
         main_menu()
+
+# edit a recipe #
 
 def edit_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
@@ -168,6 +174,9 @@ def exit():
     print("Goodbye!")
     os._exit(1)
 
+# main menu function, contains root functions. Other functions
+# loop back on to at as a fallback
+
 def main_menu():
     print(
     """
@@ -191,7 +200,7 @@ def main_menu():
 
     if choice == 1:
         all_recipes = get_all_recipes()
-        print("\n".join(all_recipes))
+        print("\n\n".join(all_recipes))
         print("\n")
         chosen_recipe = input("Enter the recipe name: ").strip().lower()
         input_string = chosen_recipe.replace(" ", "_")
@@ -225,7 +234,7 @@ def main_menu():
 
     elif choice ==3:
         all_recipes = get_all_recipes()
-        print("\n".join(all_recipes))
+        print("\n\n".join(all_recipes))
         recipe = input("Choose a recipe to edit: ") 
         input_string = recipe.replace(" ", "_")       
         show_recipe(input_string)
@@ -243,7 +252,7 @@ def main_menu():
     All recipes 
     """)
         all_recipes = get_all_recipes()
-        print("\n".join(all_recipes),"\n")
+        print("\n\n".join(all_recipes),"\n")
         menu = input("Go back to main menu? y/n ")
         if menu == "y":
             main_menu()
@@ -271,6 +280,7 @@ def main_menu():
     elif choice ==7:
         exit()
 
+# ensures main menu function loads on process start
 
 if __name__== "__main__":
     main_menu()

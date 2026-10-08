@@ -1,0 +1,38 @@
+Recipe Manager
+
+- Introduction
+
+Recipe manager is a python application for displaying, writing and editing recipes using 
+a command line interface (CLI)
+
+- Getting started
+
+Run recipe manager by opening the recipe_manager.py file directly or through cmd/bash,
+the main menu will be displayed with the following options:
+
+    1. Pick a recipe by name    
+    2. Search for a recipe
+    3. Edit a recipe
+    4. See all recipes
+    5. Create a recipe
+    6. Delete a recipe
+    7. Exit
+
+- options
+
+pick a recipe by name - will display all the recipes. Type one of the recipes to display in
+
+search for a recipe - will search all the recipes by name with a search string of at least
+3 characters. Will return all the recipes that match that string
+
+edit a recipe - will display all recipes. Choose one by typing it in and then choose which
+part of the recipe to change. Follow the instructions on screen to finish.
+
+see all recipes - displays all the recipes.
+
+create a recipe - create a new recipe. Enter the name first then the type, style, ingredients,
+method and the initial rating. A new text file will be created in the recipes folder.
+
+delete a recipe - deletes a chosen recipe. Will delete its corresponding text file. 
+
+exit - quits the recipe manager and closes the window
