@@ -171,8 +171,13 @@ def edit_uploader(fetched, recipe):
         edit_recipe.write(dumped)
 
 def exit():
-    print("Goodbye!")
-    os._exit(1)
+    menu = input("Go back to main menu? Type exit to quit ").strip().lower()
+    if menu == "exit":
+        print("Goodbye!")
+        os._exit(1)
+    else:
+        main_menu()
+    
 
 # main menu function, contains root functions. Other functions
 # loop back on to at as a fallback
@@ -205,11 +210,7 @@ def main_menu():
         chosen_recipe = input("Enter the recipe name: ").strip().lower()
         input_string = chosen_recipe.replace(" ", "_")
         show_recipe(input_string)
-        menu = input("Go back to main menu? y/n ")
-        if menu == "y":
-            main_menu()
-        else: 
-            exit()
+        exit()
 
     elif choice ==2:
         all_recipes = get_all_recipes()
@@ -226,11 +227,7 @@ def main_menu():
             print("Found matching recipes:", "\n")
             for m in matches:
                 print(m)
-            menu = input("Go back to main menu? y/n ")
-            if menu == "y":
-                main_menu()
-            else: 
-                exit()
+            exit()
 
     elif choice ==3:
         all_recipes = get_all_recipes()
@@ -240,11 +237,7 @@ def main_menu():
         show_recipe(input_string)
 
         edit_recipe(input_string)
-        menu = input("Go back to main menu? y/n ")
-        if menu == "y":
-            main_menu()
-        else: 
-            exit()
+        exit()
 
     elif choice ==4:
         print(
@@ -253,11 +246,7 @@ def main_menu():
     """)
         all_recipes = get_all_recipes()
         print("\n\n".join(all_recipes),"\n")
-        menu = input("Go back to main menu? y/n ")
-        if menu == "y":
-            main_menu()
-        else: 
-            exit()
+        exit()
 
     elif choice ==5:
         create_recipe()
@@ -269,16 +258,13 @@ def main_menu():
         confirm = input("Are you sure? y/n ").strip().lower()
         if confirm == "y":
             delete_recipe(to_delete)
-            menu = input("Go back to main menu? y/n ")
-            if menu == "y":
-                main_menu()
-            else: 
-                exit()
+            exit()
         else:
             main_menu()
 
     elif choice ==7:
-        exit()
+        print("Goodbye!")
+        os._exit(1)
 
 # ensures main menu function loads on process start
 
