@@ -85,7 +85,7 @@ def create_recipe():
 def delete_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
         os.remove(f"recipes\\{recipe}.txt")
-        print(recipe, "deleted!")
+        print("Recipe", recipe, "deleted!")
         main_menu()
     else: 
         print("Recipe does not exist")
@@ -165,7 +165,7 @@ def main_menu():
         chosen_recipe = input("Enter the recipe name: ").strip().lower()
         input_string = chosen_recipe.replace(" ", "_")
         show_recipe(input_string)
-        menu = input("Go back to main menu? y/n")
+        menu = input("Go back to main menu? y/n ")
         if menu == "y":
             main_menu()
         else: 
@@ -186,7 +186,7 @@ def main_menu():
             print("Found matching recipes:")
             for m in matches:
                 print(m)
-            menu = input("Go back to main menu? y/n")
+            menu = input("Go back to main menu? y/n ")
             if menu == "y":
                 main_menu()
             else: 
@@ -199,16 +199,17 @@ def main_menu():
         show_recipe(recipe)
 
         edit_recipe(recipe)
-        menu = input("Go back to main menu? y/n")
+        menu = input("Go back to main menu? y/n ")
         if menu == "y":
             main_menu()
         else: 
             exit()
 
     elif choice ==4:
+        print("All recipes: ")
         all_recipes = get_all_recipes()
         print("\n".join(all_recipes))
-        menu = input("Go back to main menu? y/n")
+        menu = input("Go back to main menu? y/n ")
         if menu == "y":
             main_menu()
         else: 
@@ -224,7 +225,7 @@ def main_menu():
         confirm = input("Are you sure? y/n ").strip().lower()
         if confirm == "y":
             delete_recipe(to_delete)
-            menu = input("Go back to main menu? y/n")
+            menu = input("Go back to main menu? y/n ")
             if menu == "y":
                 main_menu()
             else: 
