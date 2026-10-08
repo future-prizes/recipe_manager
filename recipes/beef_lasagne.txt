@@ -1,0 +1,30 @@
+{
+    "name": "Beef Lasagne",
+    "type": "Main",
+    "style": "Italian",
+    "ingredients": [
+        { "item": "olive oil", "quantity": 2, "unit": "tbsp" },
+        { "item": "onion, finely chopped", "quantity": 1, "unit": "" },
+        { "item": "garlic cloves, crushed", "quantity": 2, "unit": "" },
+        { "item": "beef mince", "quantity": 500, "unit": "g" },
+        { "item": "chopped tomatoes", "quantity": 400, "unit": "g" },
+        { "item": "tomato purée", "quantity": 2, "unit": "tbsp" },
+        { "item": "dried lasagne sheets", "quantity": 12, "unit": "" },
+        { "item": "butter", "quantity": 50, "unit": "g" },
+        { "item": "plain flour", "quantity": 50, "unit": "g" },
+        { "item": "milk", "quantity": 500, "unit": "ml" },
+        { "item": "cheddar cheese, grated", "quantity": 100, "unit": "g" }
+    ],
+    "method": [
+        "Heat the oil in a pan and fry the onion and garlic until soft.",
+        "Add the mince and brown thoroughly, then stir in the tomatoes and purée.",
+        "Simmer for 20 minutes until thickened, then season to taste.",
+        "Melt the butter in a saucepan, stir in the flour, and cook for 1 minute.",
+        "Gradually whisk in the milk and simmer until you have a smooth white sauce.",
+        "Layer mince, lasagne sheets, and white sauce in an ovenproof dish, finishing with white sauce.",
+        "Top with grated cheddar.",
+        "Bake at 190°C (fan 170°C) for 40 minutes until bubbling and golden.",
+        "Rest for 10 minutes before serving."
+    ],
+    "rating": "5"
+}

@@ -1,0 +1,25 @@
+{
+    "name": "Chocolate Brownies",
+    "type": "Dessert",
+    "style": "American",
+    "ingredients": [
+        { "item": "dark chocolate, chopped", "quantity": 200, "unit": "g" },
+        { "item": "butter", "quantity": 175, "unit": "g" },
+        { "item": "caster sugar", "quantity": 250, "unit": "g" },
+        { "item": "eggs", "quantity": 3, "unit": "" },
+        { "item": "plain flour", "quantity": 100, "unit": "g" },
+        { "item": "cocoa powder", "quantity": 30, "unit": "g" },
+        { "item": "walnuts, roughly chopped", "quantity": 100, "unit": "g" }
+    ],
+    "method": [
+        "Melt the chocolate and butter together over a pan of barely simmering water, then cool slightly.",
+        "Whisk the eggs and sugar until pale and thick.",
+        "Fold in the melted chocolate mixture.",
+        "Sift in the flour and cocoa, then fold until just combined.",
+        "Stir in the walnuts.",
+        "Pour into a lined 20cm square tin.",
+        "Bake at 180°C (fan 160°C) for 25-30 minutes until the edges are set but the centre is still fudgy.",
+        "Cool completely in the tin before cutting into squares."
+    ],
+    "rating": "5"
+}

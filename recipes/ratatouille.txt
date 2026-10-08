@@ -1,0 +1,26 @@
+{
+    "name": "Ratatouille",
+    "type": "Vegetarian",
+    "style": "French",
+    "ingredients": [
+        { "item": "olive oil", "quantity": 3, "unit": "tbsp" },
+        { "item": "aubergine, diced", "quantity": 1, "unit": "" },
+        { "item": "courgettes, diced", "quantity": 2, "unit": "" },
+        { "item": "red peppers, diced", "quantity": 2, "unit": "" },
+        { "item": "onion, sliced", "quantity": 1, "unit": "" },
+        { "item": "garlic cloves, crushed", "quantity": 3, "unit": "" },
+        { "item": "chopped tomatoes", "quantity": 400, "unit": "g" },
+        { "item": "thyme sprigs", "quantity": 3, "unit": "" },
+        { "item": "basil leaves, torn", "quantity": 10, "unit": "" }
+    ],
+    "method": [
+        "Heat the oil in a large pan and fry the aubergine until golden, then set aside.",
+        "Fry the courgettes and peppers until softened, then set aside.",
+        "Cook the onion and garlic in the same pan until soft.",
+        "Return the vegetables to the pan with the tomatoes and thyme.",
+        "Simmer for 25 minutes until the vegetables are tender and the sauce is thick.",
+        "Season generously and stir through the basil.",
+        "Serve hot or at room temperature with crusty bread."
+    ],
+    "rating": "4"
+}

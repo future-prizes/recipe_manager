@@ -1,0 +1,28 @@
+{
+    "name": "Thai Green Curry",
+    "type": "Main",
+    "style": "Thai",
+    "ingredients": [
+        { "item": "chicken thighs, sliced", "quantity": 500, "unit": "g" },
+        { "item": "thai green curry paste", "quantity": 3, "unit": "tbsp" },
+        { "item": "coconut milk", "quantity": 400, "unit": "ml" },
+        { "item": "chicken stock", "quantity": 150, "unit": "ml" },
+        { "item": "fish sauce", "quantity": 2, "unit": "tbsp" },
+        { "item": "palm sugar", "quantity": 1, "unit": "tbsp" },
+        { "item": "green beans, trimmed", "quantity": 100, "unit": "g" },
+        { "item": "thai aubergines, quartered", "quantity": 6, "unit": "" },
+        { "item": "thai basil leaves", "quantity": 15, "unit": "" },
+        { "item": "lime juice", "quantity": 1, "unit": "tbsp" }
+    ],
+    "method": [
+        "Fry the curry paste in a wok for 1-2 minutes until fragrant.",
+        "Add the chicken and stir to coat in the paste.",
+        "Pour in the coconut milk and stock, then bring to a gentle simmer.",
+        "Add the aubergines and simmer for 10 minutes.",
+        "Add the green beans and cook for a further 5 minutes.",
+        "Season with the fish sauce, palm sugar, and lime juice.",
+        "Stir through the thai basil just before serving.",
+        "Serve with jasmine rice."
+    ],
+    "rating": "4"
+}

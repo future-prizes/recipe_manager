@@ -1,0 +1,29 @@
+{
+    "name": "Chicken Tikka Masala",
+    "type": "Main",
+    "style": "Indian",
+    "ingredients": [
+        { "item": "chicken thighs, cubed", "quantity": 600, "unit": "g" },
+        { "item": "natural yoghurt", "quantity": 150, "unit": "g" },
+        { "item": "tikka spice mix", "quantity": 3, "unit": "tbsp" },
+        { "item": "vegetable oil", "quantity": 2, "unit": "tbsp" },
+        { "item": "onion, finely chopped", "quantity": 1, "unit": "" },
+        { "item": "garlic cloves, crushed", "quantity": 3, "unit": "" },
+        { "item": "ginger, grated", "quantity": 1, "unit": "tbsp" },
+        { "item": "masala curry paste", "quantity": 4, "unit": "tbsp" },
+        { "item": "chopped tomatoes", "quantity": 400, "unit": "g" },
+        { "item": "double cream", "quantity": 150, "unit": "ml" },
+        { "item": "ground almonds", "quantity": 2, "unit": "tbsp" }
+    ],
+    "method": [
+        "Mix the chicken with the yoghurt and 2 tbsp of the tikka spice mix, then marinate for at least 1 hour.",
+        "Spread the chicken on a tray and grill for 10-12 minutes until lightly charred.",
+        "Heat the oil in a pan and cook the onion, garlic, and ginger until golden.",
+        "Stir in the curry paste and remaining tikka spice, frying for 2 minutes.",
+        "Add the tomatoes and simmer for 10 minutes.",
+        "Stir in the cream, ground almonds, and grilled chicken.",
+        "Simmer gently for 15 minutes until the sauce is rich and the chicken is cooked through.",
+        "Serve with basmati rice and naan bread."
+    ],
+    "rating": "5"
+}
