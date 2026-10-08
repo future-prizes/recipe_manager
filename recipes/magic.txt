@@ -1,1 +1,27 @@
-{"name": "magic", "type": "wizae", "style": "super", "ingredients": [{"item": "mana", "quantity": "500", "unit": "mu"}, {"item": "dad", "quantity": "faf", "unit": "4"}, {"item": "fsdf", "quantity": "fs", "unit": "f"}], "method": ["ffsd", "ds"]}
+{
+    "name": "magic",
+    "type": "wizae",
+    "style": "yahoo",
+    "ingredients": [
+        {
+            "item": "mana",
+            "quantity": "500",
+            "unit": "mu"
+        },
+        {
+            "item": "dad",
+            "quantity": "faf",
+            "unit": "4"
+        },
+        {
+            "item": "fsdf",
+            "quantity": "fs",
+            "unit": "f"
+        }
+    ],
+    "method": [
+        "ffsd",
+        "ds"
+    ],
+    "rating": "2"
+}

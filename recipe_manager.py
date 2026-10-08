@@ -27,6 +27,10 @@ Ingredients:""")
                 step +=1
                 print(f"{step}. {m}")
             print("\n")
+            if shown_recipe.rating:
+                print(f"Rating: {shown_recipe.rating}", "\n")
+            else:
+                print("No rating yet")
     else:
         print("Recipe does not exist!", "\n")
 
@@ -117,6 +121,7 @@ def edit_recipe(recipe):
     Style
     Ingredients
     Method
+    Rating
 
     """).strip().lower()
 
@@ -141,6 +146,13 @@ def edit_recipe(recipe):
         method = []
         new_method = add_method(method)
         fetched["method"] = new_method
+        edit_uploader(fetched, recipe)
+    elif part =="rating":  
+        while True:
+            new_rating = input("Choose a rating out of 5 ")
+            if new_rating in ("1","2","3","4","5"):
+                break
+        fetched["rating"] = new_rating
         edit_uploader(fetched, recipe)
     else:
         print("part not in recipe ")
@@ -214,10 +226,11 @@ def main_menu():
     elif choice ==3:
         all_recipes = get_all_recipes()
         print("\n".join(all_recipes))
-        recipe = input("Choose a recipe to edit: ")        
-        show_recipe(recipe)
+        recipe = input("Choose a recipe to edit: ") 
+        input_string = recipe.replace(" ", "_")       
+        show_recipe(input_string)
 
-        edit_recipe(recipe)
+        edit_recipe(input_string)
         menu = input("Go back to main menu? y/n ")
         if menu == "y":
             main_menu()
