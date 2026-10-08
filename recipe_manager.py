@@ -2,6 +2,7 @@ from recipe import Recipe
 import json
 import os
 
+
 def show_recipe(recipe):
     if os.path.exists(f"recipes\\{recipe}.txt"):
         with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
@@ -142,6 +143,7 @@ def edit_uploader(fetched, recipe):
 
 def exit():
     print("Goodbye!")
+    os._exit(1)
 
 def main_menu():
     print("Welcome to Recipe Manager")
