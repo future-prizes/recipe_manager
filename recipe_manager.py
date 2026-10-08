@@ -8,17 +8,27 @@ def show_recipe(recipe):
         with open(f"recipes\\{recipe}.txt", encoding="UTF-8") as string:
             fetched = json.loads(string.read())
             shown_recipe = Recipe(**fetched)
-            print(f"Name: {shown_recipe.name}")
-            print(f"Type: {shown_recipe.type}")
-            print(f"Style: {shown_recipe.style}")
+            print(f"""
+Name: {shown_recipe.name}
+""")
+            print(
+f"""Type: {shown_recipe.type}
+""")
+            print(
+f"""Style: {shown_recipe.style}""")
+            print("""
+Ingredients:""")
             for i in shown_recipe.ingredients:
-                print(f"{i["item"]}: {i["quantity"]}{i["unit"]}")
+                print(f"""
+{i["item"]}: {i["quantity"]}{i["unit"]}""")
+            print("\n")
             step = 0
             for m in shown_recipe.method:
                 step +=1
                 print(f"{step}. {m}")
+            print("\n")
     else:
-        print("Recipe does not exist!")
+        print("Recipe does not exist!", "\n")
 
 def get_all_recipes():
     files = os.listdir("recipes\\")
@@ -38,14 +48,14 @@ def add_ingredients(ingredients_list):
         "quantity":quantity, 
         "unit": unit}
     ingredients_list.append(ingredient_template)
-    another = input("Add anorther ingredient? y/n ")
+    another = input("Add another ingredient? y/n ")
     if another =="y":
         return add_ingredients(ingredients_list)
     else:
         return ingredients_list
 
 def add_method(method):
-    print("Next, enter the method of the recipe")
+    print("Next, enter the method of the recipe", "\n")
     step = input("Enter the next step: ")
     method.append(step)
     another = input("Add another step? y/n ")
@@ -107,6 +117,7 @@ def edit_recipe(recipe):
     Style
     Ingredients
     Method
+
     """).strip().lower()
 
     if part == "type":
@@ -146,24 +157,30 @@ def exit():
     os._exit(1)
 
 def main_menu():
-    print("Welcome to Recipe Manager")
+    print(
+    """
+    *****************************
+    * Welcome to Recipe Manager *
+    *****************************
+    """)
 
     choice = int(input(
-"""What would you like to do? 
+    """What would you like to do? 
 
-1. Pick a recipe by name    
-2. Search for a recipe
-3. Edit a recipe
-4. See all recipes
-5. Create a recipe
-6. Delete a recipe
-7. Exit
+    1. Pick a recipe by name    
+    2. Search for a recipe
+    3. Edit a recipe
+    4. See all recipes
+    5. Create a recipe
+    6. Delete a recipe
+    7. Exit
 
-"""))
+    """))
 
     if choice == 1:
         all_recipes = get_all_recipes()
         print("\n".join(all_recipes))
+        print("\n")
         chosen_recipe = input("Enter the recipe name: ").strip().lower()
         input_string = chosen_recipe.replace(" ", "_")
         show_recipe(input_string)
@@ -183,9 +200,9 @@ def main_menu():
         matches = list(filter(lambda e: search_string in e, all_recipes))
         
         if len(matches) ==0:
-            print("No matches found")
+            print("No matches found", "\n")
         else:
-            print("Found matching recipes:")
+            print("Found matching recipes:", "\n")
             for m in matches:
                 print(m)
             menu = input("Go back to main menu? y/n ")
@@ -208,9 +225,12 @@ def main_menu():
             exit()
 
     elif choice ==4:
-        print("All recipes: ")
+        print(
+    """
+    All recipes 
+    """)
         all_recipes = get_all_recipes()
-        print("\n".join(all_recipes))
+        print("\n".join(all_recipes),"\n")
         menu = input("Go back to main menu? y/n ")
         if menu == "y":
             main_menu()
